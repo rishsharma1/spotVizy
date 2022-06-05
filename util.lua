@@ -13,5 +13,15 @@ M.dump = function(o)
     end
 end
 
+local function easeOutQuart(t)
+    t = t - 1
+    return 1 - t * t * t * t
+end
+
+M.ease = function(t) 
+    local progress = math.min(math.max(0, t), 1)
+    return easeOutQuart(progress)
+end
+
 return M
  
